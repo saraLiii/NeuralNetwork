@@ -34,3 +34,24 @@ class Perceptron:
     def print_weights(self):
         print(f"weight:{self.w}, bias:{self.b}")
 
+
+
+X = np.array([
+    [0, 0],
+    [0, 1],
+    [1, 0],
+    [1, 1]
+])
+And_Y=np.array([0,0,0,1])
+Or_Y=np.array([0,1,1,1])
+Xor_Y=np.array([0,1,1,0])
+
+def test_perceptron(X,Y):
+    perceptron = Perceptron(input_dim=2)
+    perceptron.learning(X,Y)
+    perceptron.print_weights()
+
+
+if __name__ == "__main__":
+    test_perceptron(X,Xor_Y)
+
