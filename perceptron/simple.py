@@ -13,7 +13,7 @@ class Perceptron:
 
 
     def predict(self,x):
-        return self.activation(np.dot(x,self.w)+self.b)
+        return np.dot(x,self.w)+self.b
 
 
     def learning(self, X, y):
@@ -45,13 +45,17 @@ X = np.array([
 And_Y=np.array([0,0,0,1])
 Or_Y=np.array([0,1,1,1])
 Xor_Y=np.array([0,1,1,0])
+axb_Y=np.array([1,0,1,0])
 
 def test_perceptron(X,Y):
     perceptron = Perceptron(input_dim=2)
     perceptron.learning(X,Y)
     perceptron.print_weights()
+    for xi,yi in zip(X,Y):
+        prediction = perceptron.predict(xi)
+        print(f"Input: {xi}, Prediction: {prediction}, Target: {yi}")
 
 
 if __name__ == "__main__":
-    test_perceptron(X,Xor_Y)
+    test_perceptron(X,axb_Y)
 
