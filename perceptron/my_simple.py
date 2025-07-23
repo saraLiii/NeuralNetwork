@@ -16,6 +16,9 @@ class MyPerceptron:
     def activation(self, value):
         return 1 if value >= self.threshold else 0
 
+
+    # 主要改动，把predict从0，1变成了连续输出
+    # 其实这个改动，相当于也改变loss函数
     def predict(self, x):
         return np.dot(x, self.w) + self.b
 
